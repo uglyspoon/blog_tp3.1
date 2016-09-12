@@ -1,0 +1,74 @@
+<include file="./App/Tpl/Index/Template/head1.html" />
+<link href="../Public/css/index.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/clock/csshake.min.css">
+<script type="text/javascript" src="__PUBLIC__/clock/index.js"></script>
+<style type="text/css">
+.clock{margin:0;padding:0;list-style-type:none;}
+.clock a,img{border:0;}
+.clock{font:12px/67% Arial, Helvetica, sans-serif, "新宋体";background:#fff;}
+/* clock */
+.clock{width:280px;height:50px;margin:30px 0 0px 170px;transform:translate(-50%, -50%);color:#d96457;font-family:"Lato", sans-serif;}
+.clock div{position:relative;float:left;background:#ffe8e8;border-radius:6px;width:50px;height:50px;line-height:50px;text-align:center;font-size:40px;margin:0px 5px;}
+</style>
+<include file='./App/Tpl/Index/Template/head2.html'/>
+<body>
+<include file='./App/Tpl/Index/Template/nav.html'/>
+<div class="banner">
+  <section class="box">
+    <ul class="texts">
+      <p>我可以划船不用桨</p> 
+      <p>&emsp;我可以扬帆没有风向</p> 
+      <p>&emsp;&emsp;因为我这一生，全靠浪</p> 
+    </ul>
+    <div class="avatar"><a href="about.html"><span>小浪花</span></a> </div>
+  </section>
+</div>
+<div class="template">
+  <div class="box">
+    <h3><p><span>置顶</span>文章 Top</p></h3>
+    <ul>
+      <foreach name='zd' item='v'>
+        <li><a href="{:U('article/'.$v['id'])}" title="{$v.title}" ><img src="{$v.coverpic}" alt="{$v.title}"></a><span>{$v.title}</span></li>
+      </foreach>
+    </ul>
+  </div>
+</div>
+<article>
+  <h2 class="title_tj">
+    <p>文章<span>推荐</span></p>
+  </h2>
+  <div class="bloglist left">
+    <foreach name='tj' item='v'>
+    <h3>
+      <a href="{:U('article/'.$v['id'])}" >{$v.title}</a>
+    </h3>
+    <figure><img src="{$v.coverpic}" alt="pic"></figure>
+    <ul>
+      <p>{$v.summary}</p>
+      <a  href="{:U('article/'.$v['id'])}"  target="_blank" class="readmore">阅读全文>></a>
+    </ul>
+    <p class="dateview"><span>{$v.time|date='Y-m-d H:i',###}</span><span>作者：{$v.author}</span><span>点击次数：[{$v.click}]</span>  
+    </p> 
+    </foreach>   
+    </div>
+  <aside class="right">
+    <div class='clock'>
+  <div class='h shake shake-slow'></div>
+  <div class='m shake shake-slow'></div>
+  <div class='s shake shake-slow'></div>
+  </div>
+    <div class="news">
+      {:W('New',array('limit'=>8))}
+      {:W('Hot',array('limit'=>9))}
+    <h3 class="links">
+      <p>友情<span>链接</span></p>
+    </h3>
+    <ul class="website">
+      <li><a href="h#" target="_blank">###</a></li>
+    </ul>     
+  </div>
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<div class="guanzhu">扫描二维码关注<span>小浪花微信~</span>目前是单身啦</div>   
+    <a href="index.html" class="weixin" onclick="javacript:return false;"></a></aside>
+</article>
+<include file='./App/Tpl/Index/Template/footer.html'/>

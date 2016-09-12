@@ -1,0 +1,24 @@
+ <php>
+ 	$cate=M('cate')->order('sort')->select(); 
+ 	import('Class.Category',APP_PATH);
+ 	$cate=Category::unlimitedForLayer($cate);
+ </php>
+ <header>
+  <div id="logo"><a href="{:U('/')}"></a></div>
+  <nav class="topnav" id="topnav">
+  	<foreach name='cate' item='v'>
+  		<if condition='$v.type eq 1'>
+  			<a href="{:U('Index/Index/about')}"><span>{$v.name}</span><span class="en">About</span></a>
+  		<elseif condition='$v.type eq 2'/>
+  			<a href="{:U('cate/'.$v['id'])}"><span>{$v.name}</span><span class="en">Articles</span></a>
+  		<elseif condition='$v.type eq 3'/>
+  			<a href="{:U('/time')}"><span>{$v.name}</span><span class="en">Time</span></a>
+  		<elseif condition='$v.type eq 4'/>
+  			<a href="{:U('Index/Message')}"><span>{$v.name}</span><span class="en">Message</span></a>
+  		<else />
+  			<a href="{:U('/wish')}" ><span>{$v.name}</span><span class="en">Wish</span></a>
+  		</if>
+  	</foreach>
+    <a href="{:U('Public/love/index.html')}" ><span>等待  </span><span class="en">Love</span></a>
+  </nav>
+</header>

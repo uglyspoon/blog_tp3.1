@@ -1,0 +1,24 @@
+<include file="./App/Tpl/Index/Template/head1.html" />
+<link href="../Public/css/mood.css" rel="stylesheet">
+<include file='./App/Tpl/Index/Template/head2.html'/>
+<body>
+ <include file='./App/Tpl/Index/Template/nav.html'/>
+<div class="moodlist">
+  <h1 class="t_nav"><span>删删写写，回回忆忆，虽无法行云流水，却也可碎言碎语。</span><a href="{:U('/')}" class="n1">网站首页</a><a href="#" class="n2">时间轴</a></h1>
+  <div class="bloglist">
+    <foreach name='time' item='v'>
+    <ul class="arrow_box">
+     <div class="sy"><p><img src="{$v.picpath}"  />{$v.content}</p></div>
+      <span class="dateview">{$v.time|date='Y-m-d H:i',###}</span>
+    </ul>
+    </foreach>
+  </div>
+  <div class="page"><a title="Total record"><b>168</b> </a><b>1</b><a href="/newstalk/index_2.html">2</a><a href="/newstalk/index_3.html">3</a><a href="/newstalk/index_4.html">4</a><a href="/newstalk/index_5.html">5</a><a href="/newstalk/index_6.html">6</a><a href="/newstalk/index_7.html">7</a><a href="/newstalk/index_2.html">></a><a href="/newstalk/index_7.html">>></a></div> 
+</div>
+<div id="tbox"> <a id="togbook" href="message.html"></a> <a id="gotop" href="javascript:void(0)"></a> </div>
+<footer>
+  <p>Design by UglySpoon <a href="#" target="_blank">###</a> </p>
+</footer>
+<script src="../Public/js/silder.js"></script>
+</body>
+</html>

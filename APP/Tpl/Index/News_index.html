@@ -1,0 +1,46 @@
+<include file='./App/Tpl/Index/Template/head1.html'/>
+<link href="../Public/css/style.css" rel="stylesheet">
+<include file='./App/Tpl/Index/Template/head2.html'/>
+<body>
+<include file='./App/Tpl/Index/Template/nav.html'/>
+<article class="blogs">
+<h1 class="t_nav"><span>{$remark}</span><a href="{:U('/')}" class="n1">网站首页</a>
+  <foreach name='parents' item='v'>
+    <a href="{:U('/cate/'.$v['id'])}" class="n2">{$v.name}</a>
+  </foreach>
+</h1>
+    <div class="newblog left">
+<foreach name='blog' item='v'>
+    <h2><a title="{$v.title}" href="{:U('article/'.$v['id'])}" >{$v.title}</a></h2>
+   <p class="dateview"><span>发布时间：{$v.time|date='Y-m-d H:i',###}</span><span>作者：{$v.author}</span><span>点击数:[{$v.click}]</span></p>
+    <figure><a title="{$v.title}" href="{:U('article/'.$v['id'])}" ><img src="{$v.coverpic}" alt="{$v.title}" ></a></figure>
+    <ul class="nlist">
+      <p>{$v.summary}</p>
+      <a href="{:U('article/'.$v['id'])}"  target="_blank" class="readmore">阅读全文>></a>
+    </ul>
+    <div class="line"></div>
+</foreach>
+    
+    
+    <!--  分页前修饰线和空白-->
+    <div class="blank"></div>
+    <!-- 分页代码开始-->
+    <div class="page">{$page}</div>
+    </div>
+    <!-- 分页代码结束-->
+<aside class="right">
+{:W('Sub',array('id'=>$id))}
+<div class="blank"></div>
+    <div class="news">
+      {:W('New',array('limit'=>8,'cid'=>$id))}
+      {:W('Hot',array('limit'=>9,'cid'=>$id))}
+    </div>
+
+<div class="visitors">
+      <h3><p>最近访客</p></h3>
+     <ul class="ds-recent-visitors"  data-num-items="24"></ul>
+    </div>
+</aside>
+</article>
+<div id="tbox"> <a id="togbook" href="message.html"></a> <a id="gotop" href="javascript:void(0)"></a> </div>
+<include file='./App/Tpl/Index/Template/footer.html'/>

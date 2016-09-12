@@ -1,0 +1,15 @@
+<div class="rnav">
+  <ul>
+    <foreach name='sub' item='v'>
+      <li class="rnav{$v['id']%4+1}"><a href="{:U('Index/News/Sub',array('id'=>$v['id']))}">{$v.name}</a></li>
+    </foreach>
+  </ul>      
+</div>
+ <div class="rnavs">
+  <ul> 
+    <foreach name='sub' item='v'>
+      <li class="rnav1"><a href="#" target="_blank">{$v.name}</a></li>
+    </foreach>      
+  </ul>      
+</div>
+   

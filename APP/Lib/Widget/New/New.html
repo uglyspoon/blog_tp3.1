@@ -1,0 +1,8 @@
+<h3>
+      <p>最新<span>文章</span></p>
+</h3>
+ <ul class="rank">
+ 	<foreach name='news' item='v'>
+      <li><a href="{:U('article/'.$v['id'])}" title="#" target="_blank">{$v.title}</a></li>
+  	</foreach>
+ </ul>
